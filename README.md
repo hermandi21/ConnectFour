@@ -1,35 +1,6 @@
-# Htwg Scala Seed Project 
-=====================================================
-## the easiest way to start a project for the lecture SE
+# Htwg Scala "Vier Gewinnt" Project 
 
+"Vier gewinnt" ist ein strategisches Zweispieler-Spiel, das auch unter den englischen Namen "Connect Four" oder "Captain's Mistress" bekannt ist. Das Ziel des Spiels besteht darin, als erster Spieler vier seiner eigenen Spielsteine in einer geraden Linie zu platzieren.
 
-This is a seed project to create a basic scala project as used in the
-class Software Engineering at the University of Applied Science HTWG Konstanz.
-
-It requires Java 8 on your local platform.
-The project has
-* a folder structure prepared for a MVC-style application
-* *ScalaTest* and as dependency aswell as dependencies to other libraries in the build.sbt (commented out at start).
-* *scalastyle-sbt-plugin* and *sbt-scoverage* sbt plugins
-* .gitignore defaults
-
-The easiest way to create your own project from this seed is
-* create an account on github
-* navigate to this project on github (https://github.com/markoboger/htwg-scala-seed)
-* fork this project on github (button on top right "Fork")
-* copy the URL to your fork
-* clone the forked project from your local git (git clone <URL>) or IDE (IDEA: File > New > Import from Version Controll > github)
-
-After that, please rename
-* the Project name from htwg-scala-seed to <your game name>
-* the the package structure from de.htwg.se.yourgame to de.htwg.se.<your game name>
-* the name of the project in the build.sbt file from htwg-scala-seed to <your game name>
-* the main Class YourGame to <YourGameName>
-
-Then
-* push to git
-* add team partner to your project on github (Settings > Collaborators)
-* clone on partners account
-* push and pull back and forth
-
-
+## Regeln
+Das Spiel findet auf einem vertikalen Spielbrett statt, in das die Spieler nacheinander ihre Spielsteine einwerfen. Das Spielbrett besteht aus sieben senkrechten Spalten und sechs horizontalen Reihen. Jeder Spieler verfügt über 21 Spielsteine, die alle die gleiche Farbe haben. Wenn ein Spieler seinen Spielstein in eine Spalte einwirft, fällt er auf den untersten freien Platz dieser Spalte. Gewonnen hat der Spieler, der es schafft, vier oder mehr seiner Spielsteine in eine waagerechte, senkrechte oder diagonale Linie zu platzieren. Das Spiel endet unentschieden, wenn das Spielbrett komplett gefüllt ist, ohne dass ein Spieler eine Viererlinie gebildet hat.
