@@ -1,20 +1,20 @@
-package de.htwg.se.ConnectFour.model
+import de.htwg.se.ConnectFour.model.Player
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-import org.scalatest._
-import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
 
-@RunWith(classOf[JUnitRunner])
-class PlayerSpec extends WordSpec with Matchers {
-  "A Player" when { "new" should {
-    val player = Player("Your Name")
-    "have a name"  in {
-      player.name should be("Your Name")
+class PlayerSpec extends AnyFlatSpec with Matchers {
+
+    "Player" should "be printed correctly" in {
+        val player = Player("Andreas")
+        player.toString() should be ("Andreas")
     }
-    "have a nice String representation" in {
-      player.toString should be("Your Name")
-    }
-  }}
 
+    "Player1" should "be equal to the player with the same name" in {
+        val player1 = Player("Alice")
+        val player2 = Player("Alice")
+        player1 should be equals (player2)
+    }
+    
 
 }
