@@ -1,0 +1,27 @@
+
+.eclipse
+.idea
+.bsp
+.metals
+.vscode
+project/.bloop
+/target
+
+
+# sbt
+.cache
+.lib/
+dist/*
+lib_managed/
+src_managed/
+project/
+logs/
+project/.sbtserver
+.sbtserver/
+*.json
+*.class
+*.tasty
+*.scala.semanticdb
+*.bin
+*.log
+*.db
