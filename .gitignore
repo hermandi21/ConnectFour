@@ -25,3 +25,4 @@ project/.sbtserver
 *.bin
 *.log
 *.db
+.metals/metals.lock.db
