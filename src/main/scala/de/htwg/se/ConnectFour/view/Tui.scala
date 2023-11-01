@@ -1,35 +1,33 @@
 package de.htwg.se.ConnectFour.view
 
-import de.htwg.se.ConnectFour.model.MatchfieldModel
+class Tui {
 
-val numRows = 6
-val numCols = 7
+  def printGameBoard(rows: Int, columns: Int): String = {
+    val board = new StringBuilder
 
-class Tui(matchfield: MatchfieldModel[Any]) {
-
-  def displayMatchfield(): Unit = {
-    println(matchfield)
-  }
-
-  def displayMessage(message: String): Unit = {
-    println(message)
-  }
-
-  def getUserInput(): Int = {
-    try {
-      val numCols = matchfield.rows.headOption.map(_.size).getOrElse(0)
-      print(s"Enter the column (1-$numCols) to drop your token: ")
-      val input = scala.io.StdIn.readInt()
-      if (input >= 1 && input <= numCols) {
-        input
-      } else {
-        displayMessage(s"Invalid input. Please enter a column number (1-$numCols).")
-        getUserInput()
-      }
-    } catch {
-      case _: NumberFormatException =>
-        displayMessage(s"Invalid input. Please enter a column number (1-$numCols).")
-        getUserInput()
+    for (i <- 1 to rows) {
+      board.append("+" + "---+" * columns + "\n")
+      board.append("|" + "   |" * columns + "\n")
     }
+    board.append("+" + "---+" * columns + "\n")
+
+    // Spaltennummern horizontal ausgeben
+    for (col <- 1 to columns) {
+      board.append(s" $col  ")
+    }
+    board.append("\n")
+
+    board.toString()
   }
+
+  def createEmptyBoard(rows: Int, cols: Int): Array[Array[Int]] = {
+    Array.ofDim[Int](rows, cols)
+  }
+
+    def cell(rows:Int, cols:Int): Any = (rows,cols)
 }
+
+
+
+
+

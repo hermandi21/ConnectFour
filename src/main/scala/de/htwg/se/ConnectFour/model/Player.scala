@@ -7,4 +7,4 @@ trait Player {
     override def toString() = this.sign.toString()
 }
 
-case class HumanPlayer(name: String = "player", sign: Char = 'x') extends Player
+case class RealPlayer(name: String = "player", sign: Char = 'x') extends Player
