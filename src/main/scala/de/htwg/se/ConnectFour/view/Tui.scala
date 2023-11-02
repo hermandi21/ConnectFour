@@ -11,7 +11,6 @@ class Tui {
     }
     board.append("+" + "---+" * columns + "\n")
 
-    // Spaltennummern horizontal ausgeben
     for (col <- 1 to columns) {
       board.append(s" $col  ")
     }
@@ -20,11 +19,6 @@ class Tui {
     board.toString()
   }
 
-  def createEmptyBoard(rows: Int, cols: Int): Array[Array[Int]] = {
-    Array.ofDim[Int](rows, cols)
-  }
-
-    def cell(rows:Int, cols:Int): Any = (rows,cols)
 }
 
 
