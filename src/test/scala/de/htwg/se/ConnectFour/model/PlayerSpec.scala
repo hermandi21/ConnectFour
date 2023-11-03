@@ -6,9 +6,9 @@ import org.scalatest.wordspec.AnyWordSpec
 
 class PlayerSpec extends AnyWordSpec with should.Matchers {
   "A PlayerModel" should {
-    val player = RealPlayer("Max Mustermann", 'Y')
+    val player = RealPlayer("Andreas", 'X')
     "have a name" in {
-      player.name should be ("Max Mustermann")
+      player.name should be ("Andreas")
     }
     "have a symbol resembled by one character" in {
       player.sign
