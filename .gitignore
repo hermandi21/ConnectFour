@@ -27,3 +27,4 @@ project/.sbtserver
 *.db
 *.metals/metals.lock.db
 .metals/metals.lock.db
+.metals/metals.lock.db
