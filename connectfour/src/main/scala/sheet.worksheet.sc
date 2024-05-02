@@ -1,23 +1,3 @@
-//Lists
-val a = List(19, 50, 8, 1, 365).sorted
-
-val colors = List("green", "red", "yellow", "blue").sorted
-
-colors(1)
-
-
-b._1 //1.Element -> Thu Ha
-b._2
-
-c._2
-
-
-//Methode
-def add5(num:Int):Int = {
-  num + 5
-}
-
-val d = add5(9)
 
 
 //data types
@@ -105,16 +85,6 @@ house.cells(0).value
 house.cells(0).isSet
 
 
-//Player
-case class Player(name: String)
-val player = Player("Thu Ha")
-player.name
-val playerList = List(player)
-val player2 = Player("Orkan")
-playerList :+ player2
-playerList
-
-
 //Enumerate
 enum Chip:
   case Yellow, Red, Empty
@@ -172,3 +142,18 @@ def matchTest (x: Int): String = x match {
 }
 
 println(matchTest(1))
+
+val nums = 1 :: 2 :: 3 :: 4 :: 8 :: Nil
+println(nums)
+
+val names = Seq("chris", "ed", "maurice")
+for(n <- names ) {println(n)}
+
+val num = Seq(1,2,3)
+val letters = Seq('a', 'b', 'c')
+
+val res = for {
+  n <- nums
+  c <- letters 
+} yield (n,c)
+
