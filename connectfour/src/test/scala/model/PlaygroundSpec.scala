@@ -14,9 +14,9 @@ class PlaygroundSpec extends AnyWordSpec {
       "have the default size" in {
         playground.size should be(7)
       }
-      val playgroundcpy = playground.insertChip(0, player)
+      val playgroundcpy = playground.insertChip(0)
       "Player should insert a chip in a choosen column" in {
-        playgroundcpy.grid.getCell(playgroundcpy.size - 1, 0).chip should be(Chip.RED)
+        playgroundcpy.grid.getCell(playgroundcpy.size - 1, 0).chip should be(Chip.YELLOW)
       }
       "request how many chips inserted in a column" in {
         playgroundcpy.getPosition(0) should be(playgroundcpy.size - 2)
@@ -32,7 +32,7 @@ class PlaygroundSpec extends AnyWordSpec {
         playground.border() should be(s"${BLUE_B}  -----------------------------  ${RESET}\n")
       }
       "should print the whole gamefield" in {
-        playground.toString should be(playground.colnames() + playground.grid + playground.border())
+        playground.toString should be("It's your turn " + playground.player(0) + "\n" + playground.colnames() + playground.grid + playground.border())
       }
     }
   }
