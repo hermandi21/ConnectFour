@@ -14,22 +14,16 @@ class Tui(controller: Controller) extends Observer :
   val size = 7
 
   def run =
-    println("Welcome to 'Vier Gewinnt' ")
-    println(controller.toString)
+    println("Welcome to 'Vier Gewinnt'\n $controller ")
     getInputAndPrintLoop()
 
   def getInputAndPrintLoop(): Unit =
     val input = readLine
-    val chars = input.toCharArray
+
     input match {
+      case "q" => // Exit
       case x if x.toIntOption == None =>
         println("doesn't look like a number")
-        getInputAndPrintLoop()
-      case x if x.toInt < 1 || x.toInt > size =>
-        println("wrong input, try a number from 1 to " + size)
-        getInputAndPrintLoop()
-      case _ =>
-        controller.insertChip(input.toInt - 1)
         getInputAndPrintLoop()
     }
 
