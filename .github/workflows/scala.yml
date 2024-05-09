@@ -21,5 +21,9 @@ jobs:
       - name: compile
         run: sbt compile
   tests:
+    runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - name: Build Project and export Coverage to Coveralls
+        run: |
           sbt clean jacoco jacocoCoveralls
