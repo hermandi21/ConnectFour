@@ -10,7 +10,7 @@ Connect Four ist ein einfaches und unterhaltsames Spiel, das für Spieler jeden 
 
 Um Connect Four zu spielen, führe die folgenden Schritte aus:
 
-1. Klone das Repository: `git clone https://github.com/hermandi21/connect-four.git`
+1. Klone das Repository: `git clone https://github.com/hermandi21/ConnectFour.git`
 2. Navigiere in das Verzeichnis: `cd connect-four`
 3. Öffne das Spiel in deinem Webbrowser, indem du die `index.html`-Datei öffnest.
 
