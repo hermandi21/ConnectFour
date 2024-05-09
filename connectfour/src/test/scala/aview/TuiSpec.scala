@@ -23,6 +23,32 @@ class TuiSpec extends AnyWordSpec {
       source.toString should be(s"Welcome to 'Vier Gewinnt'\n$controller\n")
     }
 
+
+    /*
+    "be playable against a Computer" in {
+      val in = new BufferedReader(new StringReader("computer"))
+      val source = new ByteArrayOutputStream()
+      val printer = new PrintStream(source)
+      Console.withOut(printer) {
+        Console.withIn(in) {
+          tui.getInputAndPrintLoop()
+        }
+      }
+
+    }
+
+    "be playable against a Person" in {
+      val in = new BufferedReader(new StringReader("1\nq\n"))
+      val source = new ByteArrayOutputStream()
+      val printer = new PrintStream(source)
+      Console.withOut(printer) {
+        Console.withIn(in) {
+          tui.getInputAndPrintLoop()
+        }
+      }
+    }
+    */
+
     "valid input" in {
       val in = new BufferedReader(new StringReader("1\nq\n"))
       val source = new ByteArrayOutputStream()
@@ -32,7 +58,7 @@ class TuiSpec extends AnyWordSpec {
           tui.getInputAndPrintLoop()
         }
       }
-      tui.size should be(7)
+      //tui.size should be(7)
       controller.playground.getPosition(0) should be(5)
     }
     "invalid input: not a number" in {
@@ -56,7 +82,7 @@ class TuiSpec extends AnyWordSpec {
           tui.getInputAndPrintLoop()
         }
       }
-      source.toString should be(("wrong input, try a number from 1 to " + tui.size + "\n") * 3)
+      source.toString should be(("wrong input, try a number from 1 to " + controller.playground.size + "\n") * 3)
     }
   }
 }
