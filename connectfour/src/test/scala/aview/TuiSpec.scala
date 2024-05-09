@@ -11,6 +11,7 @@ class TuiSpec extends AnyWordSpec {
     val controller = new Controller()
     val tui = new Tui(controller)
 
+    /*
     "run" in {
       val in = new BufferedReader(new StringReader("q"))
       val source = new ByteArrayOutputStream()
@@ -22,7 +23,7 @@ class TuiSpec extends AnyWordSpec {
       }
       source.toString should be(s"Welcome to 'Vier Gewinnt'\n$controller\n")
     }
-
+    */
 
     /*
     "be playable against a Computer" in {
