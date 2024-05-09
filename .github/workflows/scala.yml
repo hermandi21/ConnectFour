@@ -1,4 +1,4 @@
-# This workflow uses actions that are not certified by GitHub.
+#This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
 # documentation.
@@ -46,4 +46,4 @@ jobs:
         COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
       run: sbt coverageReport coveralls -Dcoveralls.service_name=github -Dcoveralls.service_job_id=${{ github.run_id }}
     - name: Coveralls GitHub Action
-      uses: coverallsapp/github-action@v2.2.3
+      uses: coverallsapp/github-action@v2.2.3 
