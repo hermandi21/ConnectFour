@@ -10,6 +10,7 @@ lazy val root = project
 
     libraryDependencies += "org.scalactic" %% "scalactic" % "3.2.10",
     libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.10" % "test",
+    libraryDependencies += "org.scoverage" % "sbt-jacoco" % "2.17.1" % "test"
   )
 
   .enablePlugins(JacocoCoverallsPlugin)
