@@ -25,5 +25,5 @@ jobs:
          COVERALLS_REPO_TOKEN: ${{ secrets.CONNECTFOUR_TOKEN }}
        run: |
          export CI_BRANCH="${GITHUB_REF#refs/heads/}"
-         sbt clean jacocoCoveralls
+         sbt clean jacoco jacocoCoveralls
 
