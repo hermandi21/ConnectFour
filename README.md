@@ -1,4 +1,4 @@
-![Build Status](https://github.com/hermandi21/ConnectFour/actions)
+![Build Status](https://github.com/hermandi21/ConnectFour/actions/scala.yml/badge.svg?branch=master)
 
 [![Coverage Status](https://coveralls.io/repos/github/hermandi21/ConnectFour/badge.svg?branch=main)](https://coveralls.io/github/hermandi21/ConnectFour?branch=main)
 
