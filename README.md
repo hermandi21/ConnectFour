@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/hermandi21/ConnectFour/badge.svg?branch=main)](https://coveralls.io/github/hermandi21/ConnectFour?branch=main)
+
 # Connect Four
 
 Willkommen bei Connect Four! Dies ist eine digitale Version des klassischen Brettspiels Vier Gewinnt. Fordere deine Freunde heraus und versuche, als Erster vier Spielsteine in einer Reihe zu platzieren, sei es horizontal, vertikal oder diagonal!
