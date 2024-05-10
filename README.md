@@ -1,3 +1,6 @@
+[![Scala CI](https://github.com/hermandi21/VierGewinnt/actions/workflows/scala.yml/badge.svg?main-Components&kill_cache=1)](https://github.com/hermandi21/VierGewinnt/actions/workflows/scala.yml)
+(https://img.shields.io/github/actions/workflow/status/hermandi21/connectfour/scala.yml?branch=main&label=Build)](https://github.com/hermandi21/connectfour/actions/workflows/scala.yml)
+
 [![Coverage Status](https://coveralls.io/repos/github/hermandi21/ConnectFour/badge.svg?branch=main)](https://coveralls.io/github/hermandi21/ConnectFour?branch=main)
 
 # Connect Four
