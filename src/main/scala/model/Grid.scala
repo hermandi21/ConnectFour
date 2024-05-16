@@ -96,7 +96,7 @@ case class Grid(grid: Vector[Vector[Cell]]) {
     def checkDiagonalUpRightWin():Int = {
         var result = 0;
         for(y <- 0 to (size - 4)) yield { //Height
-            for(x <- 0 to (size - 1)) yield { //Width
+            for(x <- 0 to (size - 4)) yield { //Width
                 var tmp = checkFour(x,y,x+1,y+1,x+2,y+2,x+3,y+3) //tmp - temporary result
 
                 if(tmp != 0) {
@@ -110,7 +110,7 @@ case class Grid(grid: Vector[Vector[Cell]]) {
     def checkDiagonalUpLeftWin(): Int = {
     var result = 0;
     for (y <- 0 to (size - 4)) yield { //Height
-      for (x <- 3 to (size - 1)) yield { //Width
+      for (x <- 3 to (size - 4)) yield { //Width
         var tempres = checkFour(x,y,x-1,y+1,x-2,y+2,x-3,y+3)
         if (tempres != 0) {
           result = tempres
