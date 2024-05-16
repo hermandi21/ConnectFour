@@ -39,22 +39,18 @@ class Controller(var playground: Playground, var gameType: Int)extends Observabl
   def changeEnemyStrategy(strat: String): Unit =
     playground = playground.setEnemyStrategy(strat)
 
-  def checkWinner(): Unit = {
-  val result = playground.grid.checkWin()
-  result match {
-    case Some(0) => // Handle the case where nobody wins
-    case Some(1) => {
-      println("Winner is Red")
-      gamestate.changeState(WinState())
+  def checkWinner(): Unit =
+    playground.grid.checkWin() match {
+      case 0 =>
+      case 1 => {
+        println("Winner is Red")
+        gamestate.changeState(WinState())
+      }
+      case 2 => {
+        println("Winner is Yellow")
+        gamestate.changeState(WinState())
+      }
     }
-    case Some(2) => {
-      println("Winner is Yellow")
-      gamestate.changeState(WinState())
-    }
-    case None => // Handle the case where the game is still ongoing
-  }
-}
-
 
   def printState: Unit = gamestate.displayState()
 
