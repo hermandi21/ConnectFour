@@ -1,7 +1,7 @@
 package de.htwg.se.VierGewinnt
 package controller
 
-import model.{Chip, Player, Playground}
+import model.{Chip, Grid, Player, Playground}
 import util.Observable
 
 class Controller(var playground: Playground) extends Observable :
@@ -9,6 +9,9 @@ class Controller(var playground: Playground) extends Observable :
 
   def insertChip(col: Int): Unit =    
     playground = playground.insertChip(col)
+    checkFull()
+    checkWinner()
+    notifyObservers
     
   def checkFull():Unit = 
     playground.grid.checkFull() match {
