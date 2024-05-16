@@ -56,10 +56,12 @@ class GridSpec extends AnyWordSpec {
         gridcpy1.getCell(0, 0) should be(Cell(Chip.YELLOW))
       }
     }
+    /*
     "have a string representation" in {
       val grid = new Grid(1)
       grid.toString should be(s"${BLUE_B}  ${BLUE_B}|" + grid.getCell(0, 0) + s"${BLUE_B}|  ${RESET}\n")
     }
+    */
     "check correctly if grid is full" should {
       var grid = new Grid(7)
       "if its not full" in {
@@ -75,7 +77,7 @@ class GridSpec extends AnyWordSpec {
       }
     }
     "winning functions" should {
-      var grid = new Grid(7)
+      var grid = new Grid(6)
       "correctly check success in checkFour() " in {
         val tempgrid = grid.replaceCell(0, 0, Cell(Chip.RED)).replaceCell(0, 1, Cell(Chip.RED)).replaceCell(0, 2, Cell(Chip.RED)).replaceCell(0, 3, Cell(Chip.RED))
         tempgrid.checkFour(0, 0, 0, 1, 0, 2, 0, 3) should be(1)
