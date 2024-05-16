@@ -55,9 +55,9 @@ case class Grid(grid: Vector[Vector[Cell]]) {
     def checkFour(a1: Int, a2: Int, b1: Int, b2: Int, c1: Int, c2: Int, d1: Int, d2: Int): Int = {
         val check = getCell(a1,a2).value.getValue
         
-        if((getCell(b1,b2).vlaue.getValue == check)
-        &&(getCell(c1,c2).vlaue.getValue == check)
-        &&(getCell(d1,d2).vlaue.getValue == check)) {
+        if((getCell(b1,b2).value.getValue == check)
+        &&(getCell(c1,c2).value.getValue == check)
+        &&(getCell(d1,d2).value.getValue == check)) {
             check
         } else {
             0
@@ -120,6 +120,6 @@ case class Grid(grid: Vector[Vector[Cell]]) {
     result
   }
 
-  val size = grid.size
+val size = grid.size
 
 }
