@@ -1,17 +1,13 @@
 package de.htwg.se.VierGewinnt.model
 
-import de.htwg.se.VierGewinnt.controller.Controller
-import org.scalatest.matchers.should.Matchers.*
-import org.scalatest.wordspec.AnyWordSpec
+import de.htwg.se.VierGewinnt.util.EnemyStrategy
 
-import scala.io.AnsiColor.*
-
-class EnemyPersonStrategySpec extends AnyWordSpec {
-  "An Enemy Person Spec should work deterministic" when {
-    var playground = new Playground()
-    "Inserting a Chip" in {
-      val tempplayground = playground.setEnemyStrategy("person")
-      tempplayground.insertChip(1) should be (Playground(Grid(Vector.tabulate(7, 7)((row, col) => Cell(Chip.EMPTY))).replaceCell(6,1,Cell(Chip.YELLOW)), List(HumanPlayer("Player 2", Chip.RED), HumanPlayer("Player 1", Chip.YELLOW)), EnemyPersonStrategy()))
-    }
+case class EnemyPersonStrategy() extends EnemyStrategy {
+  override def insertChip(pg:Playground, col: Int): Playground = {
+    if (pg.getPosition(col) != -1)
+      pg.copy(pg.grid.replaceCell(pg.getPosition(col), col, Cell(pg.player(0).chip)), pg.player.reverse, pg.enemStrat)
+    else
+      pg.error = "This column is full try another one"
+      pg
   }
 }
