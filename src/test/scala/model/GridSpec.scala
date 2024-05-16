@@ -77,7 +77,7 @@ class GridSpec extends AnyWordSpec {
       }
     }
     "winning functions" should {
-      var grid = new Grid(6)
+      var grid = new Grid(7)
       "correctly check success in checkFour() " in {
         val tempgrid = grid.replaceCell(0, 0, Cell(Chip.RED)).replaceCell(0, 1, Cell(Chip.RED)).replaceCell(0, 2, Cell(Chip.RED)).replaceCell(0, 3, Cell(Chip.RED))
         tempgrid.checkFour(0, 0, 0, 1, 0, 2, 0, 3) should be(1)
