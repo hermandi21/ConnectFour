@@ -10,7 +10,6 @@ class PlaygroundSpec extends AnyWordSpec {
   "Playground is the representation of the gamefield" when {
     "initialized without parameter" should {
       val playground = new Playground()
-      val player = new Player("Player 1", Chip.RED)
       "have the default size" in {
         playground.size should be(7)
       }
@@ -21,7 +20,6 @@ class PlaygroundSpec extends AnyWordSpec {
       "request how many chips inserted in a column" in {
         playgroundcpy.getPosition(0) should be(playgroundcpy.size - 2)
       }
-
     }
     "have a String representation with a head, grid and border" should {
       val playground = new Playground(7)
@@ -33,6 +31,30 @@ class PlaygroundSpec extends AnyWordSpec {
       }
       "should print the whole gamefield" in {
         playground.toString should be("It's your turn " + playground.player(0) + "\n" + playground.colnames() + playground.grid + playground.border())
+      }
+    }
+    "when a column is full" should {
+      val playground = new Playground(1)
+      val playgroundfull = playground.insertChip(0)
+      "nothing happen" in {
+        playgroundfull.insertChip(0) should be(playgroundfull)
+      }
+      "print that the col is full" in {
+        playgroundfull.insertChip(0).error = "This column is full try another one"
+      }
+    }
+    "when a changing the enemy strategy" should {
+      val playground = new Playground(1)
+      "change to person" in {
+        val playgroundtemp = playground.setEnemyStrategy("person")
+        playgroundtemp      }
+      "change to computer" in {
+        val playgroundtemp = playground.setEnemyStrategy("computer")
+        playgroundtemp.enemStrat should be (EnemyComputerStrategy())
+      }
+      "change not by faulty input" in {
+        val playgroundtemp = playground.setEnemyStrategy("error")
+        playgroundtemp.enemStrat should be (EnemyPersonStrategy())
       }
     }
   }
