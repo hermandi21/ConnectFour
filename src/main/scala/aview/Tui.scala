@@ -27,7 +27,7 @@ class Tui(controller: Controller) extends Observer :
         getInputAndPrintLoop()
       case "person" =>
         controller.changeEnemyStrategy(input)
-        getInputAndPrintLoop()
+        getIn
       case x if x.toIntOption == None =>
         println("doesn't look like a number")
         getInputAndPrintLoop()

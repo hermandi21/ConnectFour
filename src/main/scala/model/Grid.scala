@@ -32,7 +32,7 @@ case class Grid(grid: Vector[Vector[Cell]]) {
         //checkHorizontal
         result match {
             case 0 => result = checkHorizontalWin()
-            case _ => result
+           // case _ => result
         }
         //checkVerticalWin()
         result match {
