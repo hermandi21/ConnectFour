@@ -1,4 +1,5 @@
-package util
+package de.htwg.se.VierGewinnt.util
+
 
 import de.htwg.se.VierGewinnt.model.Playground
 

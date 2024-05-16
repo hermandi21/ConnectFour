@@ -4,7 +4,7 @@ import io.AnsiColor._
 import scala.math._
 import de.htwg.se.VierGewinnt.util.EnemyStrategy
 
-case class Playground(grid: Grid, player: List[Player], enemyStrat: EnemyStrategy) {
+case class Playground(grid: Grid, player: List[Player], enemyStrat:EnemyStrategy) {
   def this(size: Int = 7) = this(new Grid(size), List(Player("Player 1", Chip.YELLOW), Player("Player 2", Chip.RED)), EnemyPersonStrategy())
   //top element of the List 'player' is the current player
 
