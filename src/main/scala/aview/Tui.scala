@@ -1,8 +1,9 @@
 package de.htwg.se.VierGewinnt
 package aview
 
-import controller.Controller
-import model.{Player, Playground, Chip}
+import controller.{Controller, GameState}
+import model.{Chip, Playground}
+
 import scala.io.StdIn.readLine
 import util.Observer
 
