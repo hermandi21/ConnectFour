@@ -1,6 +1,6 @@
-package model
+package de.htwg.se.VierGewinnt.model
 
-import de.htwg.se.VierGewinnt.util.* 
+import de.htwg.se.VierGewinnt.util.EnemyStrategy
 
 case class PlaygroundPvP(val grid: Grid, val player: List[Player]) extends PlaygroundTemplate {
     val enemStrat = EnemyPersStrategy()

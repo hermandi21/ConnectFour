@@ -1,6 +1,10 @@
-package de.htwg.se.VierGewinnt.controller
+package de.htwg.se.VierGewinnt
 
 import model.PlaygroundTemplate
+import model.Move
+import model.Chip
+import util.Command
+import util.UndoManager
 
 
 class InsertChipCommand(move: Move) extends Command[PlaygroundTemplate]:

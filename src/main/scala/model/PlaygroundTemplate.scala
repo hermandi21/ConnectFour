@@ -1,7 +1,7 @@
-package model
+package de.htwg.se.VierGewinnt.model
 
-import java.awt.GridLayout
-import scala.concurrent.Future.never
+import scala.io.AnsiColor.BLUE_B
+import scala.io.AnsiColor.RESET
 
 trait PlaygroundTemplate {
     val grid: Grid 
@@ -37,14 +37,14 @@ trait PlaygroundTemplate {
         return if (error != "") error else box //print the col is full-error if needed
     }
 
-    def colnames(): String {
+    def colnames(): String = {
         val cols = for {
             n <- 1 to size
         } yield n 
-        return s"${BLUE_B}\t" + cols.mkString("\t") + s"\t ${RESET}\n"
+        return s"${BLUE_B}\t}" + cols.mkString("\t") + s"\t ${RESET}\n"
     }
 
-    der border(): String = {
+    def border(): String = {
         return s"{BLUE_B}   " + ("----" * size) + s"- ${RESET}\n"
     }
 }
