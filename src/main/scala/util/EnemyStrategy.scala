@@ -1,7 +1,7 @@
 package de.htwg.se.VierGewinnt.util
 
 
-import de.htwg.se.VierGewinnt.model.Playground
+import de.htwg.se.VierGewinnt.model.PlaygroundTemplate
 
 /**
   * Strategy Pattern which decide if you want to play against a
@@ -10,5 +10,5 @@ import de.htwg.se.VierGewinnt.model.Playground
 
 
 trait EnemyStrategy {
-  def insertChip(test: Playground, col: Int): Playground
+  def insertChip(playground: PlaygroundTemplate, col: Int): PlaygroundTemplate
 }

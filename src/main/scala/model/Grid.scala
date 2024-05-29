@@ -1,6 +1,7 @@
 package de.htwg.se.VierGewinnt.model
 
 import io.AnsiColor._
+import scala.util.*
 
 /** This class keeps the data of the game as a 2D Vector
  * auxilary constructor gets called for an empty board.
@@ -10,8 +11,12 @@ case class Grid(grid: Vector[Vector[Cell]]) {
 
   def getCell(row: Int, col: Int): Cell = grid(row)(col) //getter
 
-  def replaceCell(row: Int, col: Int, cell: Cell): Grid = {
-    copy(grid.updated(row, grid(row).updated(col, cell)))
+  def replaceCell(row: Int, col: Int, cell: Cell): Try[Grid] = {
+    val result = Try(copy(grid.updated(row, grid(row).updated(col, cell))))
+    result match {
+     case Success(v) => Success(v)
+     case Failure(e) => Failure(e)
+    }
   }
 
   def checkFull(): Boolean = { //if any of the top rows is not full, return false, if true, grid is completly full
@@ -22,28 +27,16 @@ case class Grid(grid: Vector[Vector[Cell]]) {
     result
   }
 
-  def checkWin(): Int = { //Return 0 = none, 1 = red, 2 = yel
-    var result = 0
-    // Horizontal
-    result match {
-      case 0 => result = checkHorizontalWin()
+  def checkWin(): Option[Int] = { //Return 0 = none, 1 = red, 2 = yel
+    val tupel = (checkHorizontalWin() ,checkVerticalWin(), checkDiagonalUpRightWin(), checkDiagonalUpLeftWin())
+    tupel match {
+      case (0, 0, 0, 0) => None
+      case _ => {
+        val list = tupel.toList
+        val sorted = list.sortWith(_ > _)
+        Some(sorted(0))
+      }
     }
-    // Vertical
-    result match {
-      case 0 => result = checkVerticalWin()
-      case _ => result
-    }
-    // Diagonal Up Right
-    result match {
-      case 0 => result = checkDiagonalUpRightWin()
-      case _ => result
-    }
-    // Diagonal Up Left
-    result match {
-      case 0 => result = checkDiagonalUpLeftWin()
-      case _ => result
-    }
-    result
   }
 
   def checkFour(a1:Int, a2:Int, b1:Int, b2:Int, c1:Int, c2:Int, d1:Int, d2:Int): Int = {
