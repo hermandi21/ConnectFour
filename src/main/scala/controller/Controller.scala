@@ -3,9 +3,11 @@ package controller
 
 import model.{BotPlayer, Chip, EnemyComputerStrategy, EnemyPersonStrategy, Grid, HumanPlayer, Player, Playground}
 import util.Observable
+import de.htwg.se.VierGewinnt.model.PlaygroundPvP
 
-class Controller(var playground: Playground, var gameType: Int)extends Observable :
-  def this(size: Int = 7) = this(new Playground(7), 0)
+class Controller(var playground: Playground, var gameType: Int) extends Observable :
+  //initialisiert die Spieler und den gameType '0: PvP' '1: PvE' '2: idk'
+  def this(size: Int = 7) = this(PlaygroundPvP(new Grid(size), List(HumanPlayer("Player 1", Chip.YELLOW),HumanPlayer("Player 2", Chip.RED))),0)
 
   var gamestate: GameState = GameState()
   var player: List[Player] = List()

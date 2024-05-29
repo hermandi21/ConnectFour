@@ -30,7 +30,7 @@ case class Grid(grid: Vector[Vector[Cell]]) {
   def checkWin(): Option[Int] = { //Return 0 = none, 1 = red, 2 = yel
     val tupel = (checkHorizontalWin() ,checkVerticalWin(), checkDiagonalUpRightWin(), checkDiagonalUpLeftWin())
     tupel match {
-      case (0, 0, 0, 0) => none
+      case (0, 0, 0, 0) => None
       case _ => {
         val list = tupel.toList
         val sorted = list.sortWith(_ > _)
