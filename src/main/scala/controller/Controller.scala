@@ -1,18 +1,19 @@
 package de.htwg.se.VierGewinnt
 package controller
 
-import model.* 
+import model._
+import util.Command
 import util.Observable
 import util.UndoManager
-import util.Command
-import javax.swing.undo.UndoManager
 
-class Controller(var playground: Playground, var gameType: Int) extends Observable :
+class Controller(var playground: PlaygroundTemplate, var gameType: Int) extends Observable :
   //initialisiert die Spieler und den gameType '0: PvP' '1: PvE' '2: idk'
   def this(size: Int = 7) = this(PlaygroundPvP(new Grid(size), List(HumanPlayer("Player 1", Chip.YELLOW),HumanPlayer("Player 2", Chip.RED))),0)
 
   var gamestate: GameState = GameState()
   var player: List[Player] = List()
+  val undoManager = new UndoManager[PlaygroundTemplate]
+
 
   def setupGame(gameType: Int, size: Int): Unit =
     gameType match 
@@ -25,13 +26,11 @@ class Controller(var playground: Playground, var gameType: Int) extends Observab
     gamestate.changeState(PlayState())
     notifyObservers
 
-    val undoManager = new UndoManager[PlaygroundTemplate]
-
   def doAndPublish(doThis: Move => PlaygroundTemplate, move: Move) =
     playground = doThis(move)
     notifyObservers
 
-  def doAndPublish(doThis: Move => PlaygroundTemplate, move: Move) =
+  def doAndPublish(doThis: => PlaygroundTemplate) =
     playground = doThis
     notifyObservers
 
