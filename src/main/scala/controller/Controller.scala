@@ -6,17 +6,16 @@ import util.Command
 import util.Observable
 import util.UndoManager
 
-class Controller(var playground: PlaygroundTemplate, var gameType: Int) extends Observable :
-  //initialisiert die Spieler und den gameType '0: PvP' '1: PvE' '2: idk'
-  def this(size: Int = 7) = this(PlaygroundPvP(new Grid(size), List(HumanPlayer("Player 1", Chip.YELLOW),HumanPlayer("Player 2", Chip.RED))),0)
-
+class Controller(var playground: PlaygroundTemplate, var gameType: Int) extends Observable:
+  def this(size: Int = 7) =
+    this(PlaygroundPvP(new Grid(size), List(HumanPlayer("Player 1", Chip.YELLOW), HumanPlayer("Player 2", Chip.RED))), 0)
   var gamestate: GameState = GameState()
   var player: List[Player] = List()
-  val undoManager = new UndoManager[PlaygroundTemplate]
 
+  def gridSize: Int = playground.size
 
   def setupGame(gameType: Int, size: Int): Unit =
-    gameType match 
+    gameType match
       case 0 =>
         player = List(HumanPlayer("Player 1", Chip.YELLOW), HumanPlayer("Player 2", Chip.RED))
         playground = PlaygroundPvP(new Grid(size), player)
@@ -26,11 +25,13 @@ class Controller(var playground: PlaygroundTemplate, var gameType: Int) extends 
     gamestate.changeState(PlayState())
     notifyObservers
 
-  def doAndPublish(doThis: Move => PlaygroundTemplate, move: Move) =
+  val undoManager = new UndoManager[PlaygroundTemplate]
+
+  def doAndPublish(doThis: Move => PlaygroundTemplate, move: Move): Unit =
     playground = doThis(move)
     notifyObservers
 
-  def doAndPublish(doThis: => PlaygroundTemplate) =
+  def doAndPublish(doThis: => PlaygroundTemplate): Unit =
     playground = doThis
     notifyObservers
 
@@ -45,20 +46,23 @@ class Controller(var playground: PlaygroundTemplate, var gameType: Int) extends 
     temp
   }
 
-  def checkFull(): Unit = 
+  def checkFull(): Unit =
     playground.grid.checkFull() match {
-      case true => gamestate.changeState(TieState())
+      case true  => gamestate.changeState(TieState())
       case false => gamestate.changeState(PlayState())
     }
 
-  def checkWinner(pg: PlaygroundTemplate): Unit = 
+  def checkWinner(pg: PlaygroundTemplate): Unit =
     pg.grid.checkWin() match {
-      case None => 
-      case Some(num) => 
-        println(" Winner is " + num)
+      case None =>
+      case Some(num) =>
+        println("Winner is " + num)
         gamestate.changeState(WinState())
     }
-  
+
+  def getChipColor(row: Int, col: Int): Chip =
+    playground.grid.getCell(row, col).chip
+
   def printState: Unit = gamestate.displayState()
 
   override def toString = playground.toString
