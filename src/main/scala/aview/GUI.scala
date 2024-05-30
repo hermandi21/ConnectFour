@@ -44,7 +44,7 @@ case class GUI(controller: Controller) extends JFXApp3 with Observer:
     stage = new JFXApp3.PrimaryStage:
       title.value = "VierGewinnt"
       scene = new Scene:
-        fill = Color.DarkBlue
+        fill = Color.Black
         controller.setupGame(0, 7)
         val menu = new MenuBar {
           menus = List(
