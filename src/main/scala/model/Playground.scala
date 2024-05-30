@@ -25,7 +25,8 @@ case class Playground(grid: Grid, player: List[Player], enemStrat: EnemyStrategy
     }
   }*/
 
-  def getDeletePosition(col: Int): Int = { //get the position where the chip should drop
+  //sucht sie die oberste Position in der angegebenen Spalte, die leer (Chip.EMPTY) ist.
+  def getDeletePosition(col: Int): Int = { 
     var i = this.size - 1
     while (i >= 0 && grid.getCell(i, col).value != Chip.EMPTY) i -= 1
     i += 1

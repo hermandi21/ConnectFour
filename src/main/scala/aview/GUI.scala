@@ -21,6 +21,7 @@ import scalafx.scene.shape.Circle
 import scalafx.scene.shape.Rectangle
 import scalafx.scene.Scene
 import scalafx.Includes.*
+import scalafx.scene.image.{Image, ImageView}
 
 case class GUI(controller: Controller) extends JFXApp3 with Observer:
   controller.add(this)
@@ -44,7 +45,7 @@ case class GUI(controller: Controller) extends JFXApp3 with Observer:
     stage = new JFXApp3.PrimaryStage:
       title.value = "VierGewinnt"
       scene = new Scene:
-        fill = Color.Black
+        fill = Color.White
         controller.setupGame(0, 7)
         val menu = new MenuBar {
           menus = List(
