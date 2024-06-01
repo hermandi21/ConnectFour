@@ -1,9 +1,9 @@
 package de.htwg.se.VierGewinnt.aview
 
-import de.htwg.se.VierGewinnt.controller.Controller
-import de.htwg.se.VierGewinnt.model.Chip
-import de.htwg.se.VierGewinnt.model.Move
-import de.htwg.se.VierGewinnt.util.Observer
+
+import de.htwg.se.VierGewinnt.controller.controllerComponent.controllerBaseImpl.Controller
+import de.htwg.se.VierGewinnt.model.gridComponent.gridBaseImpl.Chip
+import de.htwg.se.VierGewinnt.util.{Move, Observer}
 import scalafx.application.JFXApp3
 import scalafx.application.Platform
 import scalafx.application.Platform.*
@@ -21,7 +21,6 @@ import scalafx.scene.shape.Circle
 import scalafx.scene.shape.Rectangle
 import scalafx.scene.Scene
 import scalafx.Includes.*
-import scalafx.scene.image.{Image, ImageView}
 
 case class GUI(controller: Controller) extends JFXApp3 with Observer:
   controller.add(this)
@@ -45,7 +44,7 @@ case class GUI(controller: Controller) extends JFXApp3 with Observer:
     stage = new JFXApp3.PrimaryStage:
       title.value = "VierGewinnt"
       scene = new Scene:
-        fill = Color.White
+        fill = Color.DarkBlue
         controller.setupGame(0, 7)
         val menu = new MenuBar {
           menus = List(
