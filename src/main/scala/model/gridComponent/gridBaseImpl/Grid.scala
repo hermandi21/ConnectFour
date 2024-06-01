@@ -7,11 +7,12 @@ import scala.util.*
  * auxilary constructor gets called for an empty board.
  * The default constructor is to copy&replace */
 case class Grid(grid: Vector[Vector[Cell]]) {
-  def this(size: Int = 7) = this(Vector.tabulate(size, size)((row, col) => Cell(Chip.EMPTY))) //call for an empty board
+  def this(size: Int = 7) = this(Vector.tabulate(size, size)((row, col) => Cell())) //call for an empty board
 
   def getCell(row: Int, col: Int): Cell = grid(row)(col) //getter
+  override def get2DVector(): Vector[Vector[Cell]] = grid
 
-  def replaceCell(row: Int, col: Int, cell: Cell): Try[Grid] = {
+  override def replaceCell(row: Int, col: Int, cell: Cell): Try[GridInterface] = {
     val result = Try(copy(grid.updated(row, grid(row).updated(col, cell))))
     result match {
      case Success(v) => Success(v)
@@ -19,7 +20,12 @@ case class Grid(grid: Vector[Vector[Cell]]) {
     }
   }
 
-  def checkFull(): Boolean = { //if any of the top rows is not full, return false, if true, grid is completly full
+  //for testing, only if 100% certain
+  override def removeCellRisk(row: Int, col: Int, cell: Cell): GridInterface = {
+    copy(grid.updated(row, grid(row).updated(col, cell)))
+  }
+
+  override def checkFull(): Boolean = { //if any of the top rows is not full, return false, if true, grid is completly full
     var result = true
     for (i <- 0 to size - 1) yield {
       result = if (getCell(i, size - 1).value.getValue == 0) false else result
@@ -27,7 +33,7 @@ case class Grid(grid: Vector[Vector[Cell]]) {
     result
   }
 
-  def checkWin(): Option[Int] = { //Return 0 = none, 1 = red, 2 = yel
+  override def checkWin(): Option[Int] = { //Return 0 = none, 1 = red, 2 = yel
     val tupel = (checkHorizontalWin() ,checkVerticalWin(), checkDiagonalUpRightWin(), checkDiagonalUpLeftWin())
     tupel match {
       case (0, 0, 0, 0) => None
@@ -39,7 +45,7 @@ case class Grid(grid: Vector[Vector[Cell]]) {
     }
   }
 
-  def checkFour(a1:Int, a2:Int, b1:Int, b2:Int, c1:Int, c2:Int, d1:Int, d2:Int): Int = {
+  override def checkFour(a1:Int, a2:Int, b1:Int, b2:Int, c1:Int, c2:Int, d1:Int, d2:Int): Int = {
     val check = getCell(a1,a2).value.getValue
     if ((getCell(b1,b2).value.getValue == check)
       && (getCell(c1,c2).value.getValue == check)
@@ -50,7 +56,7 @@ case class Grid(grid: Vector[Vector[Cell]]) {
     }
   }
 
-  def checkHorizontalWin(): Int = {
+  override def checkHorizontalWin(): Int = {
     var result = 0;
     for (y <- 0 to (size - 4)) yield { //Height
       for (x <- 0 to (size - 1)) yield { //Width
@@ -63,7 +69,7 @@ case class Grid(grid: Vector[Vector[Cell]]) {
     result
   }
 
-  def checkVerticalWin(): Int = {
+  override def checkVerticalWin(): Int = {
     var result = 0;
     for (x <- 0 to (size - 4)) yield { //Width
       for (y <- 0 to (size - 1)) yield { //Height
@@ -76,7 +82,7 @@ case class Grid(grid: Vector[Vector[Cell]]) {
     result
   }
 
-  def checkDiagonalUpRightWin(): Int = {
+  override def checkDiagonalUpRightWin(): Int = {
     var result = 0;
     for (y <- 0 to (size - 4)) yield { //Height
       for (x <- 0 to (size - 4)) yield { //Width
@@ -89,7 +95,7 @@ case class Grid(grid: Vector[Vector[Cell]]) {
     result
   }
 
-  def checkDiagonalUpLeftWin(): Int = {
+  override def checkDiagonalUpLeftWin(): Int = {
     var result = 0;
     for (y <- 0 to (size - 4)) yield { //Height
       for (x <- 3 to (size - 1)) yield { //Width

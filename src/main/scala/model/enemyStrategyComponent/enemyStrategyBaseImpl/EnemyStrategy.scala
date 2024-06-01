@@ -1,4 +1,4 @@
-package de.htwg.se.VierGewinnt.util
+package de.htwg.se.VierGewinnt
 
 
 import de.htwg.se.VierGewinnt.model.PlaygroundTemplate

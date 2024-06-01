@@ -10,7 +10,7 @@ lazy val root = project
 
     libraryDependencies += "org.scalactic" %% "scalactic" % "3.2.10",
     libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.10" % "test",
-    libraryDependencies += ("org.scalafx" %% "scalafx" % "17.0.1-R26"),
+    libraryDependencies += "org.scalafx" %% "scalafx" % "21.0.0-R32",
     libraryDependencies ++= {
       // Determine OS version of JavaFX binaries
       lazy val osName = System.getProperty("os.name") match {
