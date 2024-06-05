@@ -1,14 +1,10 @@
-package de.htwg.se.VierGewinnt
+package de.htwg.se.VierGewinnt.model.enemyStrategyComponent.enemyStrategyBaseImpl
 
+import de.htwg.se.VierGewinnt.model.enemyStrategyComponent.EnemyStrategyInterface
+import de.htwg.se.VierGewinnt.model.playgroundComponent.playgroundBaseImpl.PlaygroundTemplate
 
-import de.htwg.se.VierGewinnt.model.PlaygroundTemplate
-
-/**
-  * Strategy Pattern which decide if you want to play against a
-  * computer or a actually real person
+/** Strategy Pattern, which decides if you play against a computer or actual person
   */
 
-
-trait EnemyStrategy {
+trait EnemyStrategy extends EnemyStrategyInterface:
   def insertChip(playground: PlaygroundTemplate, col: Int): PlaygroundTemplate
-}

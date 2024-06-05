@@ -1,10 +1,9 @@
-package de.htwg.se.VierGewinnt.model
+package de.htwg.se.VierGewinnt.model.playerComponent.playerBaseImpl
 
-import de.htwg.se.VierGewinnt.util.EnemyStrategy
+import de.htwg.se.VierGewinnt.model.gridComponent.gridBaseImpl.Chip
 
-import io.AnsiColor._
+import scala.io.AnsiColor.RESET
 
-case class BotPlayer(val name: String, val chip: Chip) extends Player {
-
+class BotPlayer(val name: String, val chip: Chip) extends Player:
+  
   override def toString: String = s"${chip.getColorCode}$name${RESET}"
-}

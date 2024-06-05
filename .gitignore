@@ -57,3 +57,4 @@ project/.bloop/connectfour-build.json
 .metals/metals.lock.db
 .metals/metals.lock.db
 target/streams/compile/dependencyClasspath/_global/streams/export
+.metals/metals.lock.db

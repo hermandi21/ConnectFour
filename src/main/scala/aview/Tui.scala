@@ -1,11 +1,12 @@
 package de.htwg.se.VierGewinnt
 package aview
 
-import controller.{Controller, GameState}
-import model.{Chip, Player, Playground, Move}
+
+import de.htwg.se.VierGewinnt.controller.controllerComponent.controllerBaseImpl.Controller
+import de.htwg.se.VierGewinnt.model.gridComponent.gridBaseImpl.Chip
 
 import scala.io.StdIn.readLine
-import util.Observer
+import util.{Move, Observer}
 
 import scala.util.Try
 
@@ -30,8 +31,7 @@ class Tui(controller: Controller)extends Observer :
       case "2" => println("not supported yet")
         prepareGameType()
       case "q" =>
-      case _ => prepareGameType()
-
+      case _   => prepareGameType()
 
   def getInputAndPrintLoop(): Unit =
     val input = readLine()
@@ -50,7 +50,6 @@ class Tui(controller: Controller)extends Observer :
         println("wrong input, try a number from 1 to " + controller.playground.size)
         getInputAndPrintLoop()
       case _ =>
-        //controller.insertChip(input.toInt - 1)
         controller.doAndPublish(controller.insChip, Move(input.toInt - 1))
         getInputAndPrintLoop()
     }

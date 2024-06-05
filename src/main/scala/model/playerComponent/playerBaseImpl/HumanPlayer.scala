@@ -1,7 +1,8 @@
-package de.htwg.se.VierGewinnt.model
+package de.htwg.se.VierGewinnt.model.playerComponent.playerBaseImpl
 
-import io.AnsiColor._
+import de.htwg.se.VierGewinnt.model.gridComponent.gridBaseImpl.Chip
 
-case class HumanPlayer(val name: String, val chip: Chip) extends Player {
+import scala.io.AnsiColor.RESET
+
+class HumanPlayer(val name: String, val chip: Chip) extends Player:
   override def toString: String = s"${chip.getColorCode}$name${RESET}"
-}
