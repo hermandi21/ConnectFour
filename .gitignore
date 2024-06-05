@@ -58,3 +58,4 @@ project/.bloop/connectfour-build.json
 .metals/metals.lock.db
 target/streams/compile/dependencyClasspath/_global/streams/export
 .metals/metals.lock.db
+.metals/.reports/metals-full/2024-06-05/r_compiler-error_(connectfour-build)_19-23-59-945.md

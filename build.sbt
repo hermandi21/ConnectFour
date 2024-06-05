@@ -1,27 +1,32 @@
-val scala3Version = "3.4.1"
+val scala3Version = "3.3.1"
 
 lazy val root = project
   .in(file("."))
   .settings(
-    name := "connectfour",
+    name := "VierGewinnt",
     version := "0.1.0-SNAPSHOT",
-
     scalaVersion := scala3Version,
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.10" % Test,
+    libraryDependencies += "org.scalafx" %% "scalafx" % "16.0.0-R24",
+    libraryDependencies += "com.oracle.database.jdbc" % "ojdbc8" % "19.8.0.0",
+    libraryDependencies += "net.codingwell" %% "scala-guice" % "7.0.0",
+    libraryDependencies += "com.typesafe.play" %% "play-json" % "2.10.3",
+    libraryDependencies += "org.scala-lang.modules" %% "scala-xml" % "2.2.0",
+    libraryDependencies += "org.scala-lang.modules" %% "scala-parallel-collections" % "1.0.3",
+    libraryDependencies += "org.xerial" % "sqlite-jdbc" % "3.34.0",
+    libraryDependencies += "org.scalatestplus" %% "mockito-3-4" % "3.2.10.0" % Test,
+    scalaVersion := "2.13.8"
 
-    libraryDependencies += "org.scalactic" %% "scalactic" % "3.2.10",
-    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.10" % "test",
-    libraryDependencies += "org.scalafx" %% "scalafx" % "21.0.0-R32",
-    libraryDependencies ++= {
-      // Determine OS version of JavaFX binaries
-      lazy val osName = System.getProperty("os.name") match {
-        case n if n.startsWith("Linux") => "linux"
-        case n if n.startsWith("Mac") => "mac"
-        case n if n.startsWith("Windows") => "win"
-        case _ => throw new Exception("Unknown platform!")
-      }
+    libraryDependencies ++= Seq(
+      "org.openjfx" % "javafx-base" % "22" classifier "linux",
+      "org.openjfx" % "javafx-controls" % "22" classifier "linux",
+      "org.openjfx" % "javafx-fxml" % "22" classifier "linux",
+      "org.openjfx" % "javafx-graphics" % "22" classifier "linux"
+    )
 
-      Seq("base", "controls", "fxml", "graphics", "media", "swing", "web")
-        .map(m => "org.openjfx" % s"javafx-$m" % "17.0.1" classifier osName)
-    }
-
+    javaOptions ++= Seq(
+      "--module-path", "/usr/lib/jvm/javafx-sdk-22/lib",
+      "--add-modules", "javafx.controls,javafx.fxml"
+    ),
+    unmanagedResourceDirectories in Compile += baseDirectory.value / "src" / "main" / "scala",
   )
