@@ -52,3 +52,8 @@ battlefieldP2.json
 target/streams/compile/_global/_global/discoveredMainClasses/data
 .metals/metals.lock.db
 .metals/metals.lock.db
+target/streams/compile/compileIncremental/_global/streams/out
+project/.bloop/connectfour-build.json
+.metals/metals.lock.db
+.metals/metals.lock.db
+target/streams/compile/dependencyClasspath/_global/streams/export
