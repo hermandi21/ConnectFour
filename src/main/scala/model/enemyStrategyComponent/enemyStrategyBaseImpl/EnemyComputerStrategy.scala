@@ -9,7 +9,7 @@ import scala.util.Failure
 import scala.util.Random
 import scala.util.Success
 
-case class EnemyComputerStrategy() extends EnemyStrategy {
+case class EnemyComputerStrategy() extends EnemyStrategyInterface {
 
   override def insertChip(pg: PlaygroundTemplate, col: Int): PlaygroundTemplate = {
     var temp =

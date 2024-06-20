@@ -7,7 +7,7 @@ import de.htwg.se.VierGewinnt.model.playgroundComponent.playgroundBaseImpl.Playg
 import scala.util.Failure
 import scala.util.Success
 
-case class EnemyPersonStrategy() extends EnemyStrategy {
+case class EnemyPersonStrategy() extends EnemyStrategyInterface {
   override def insertChip(pg: PlaygroundTemplate, col: Int): PlaygroundTemplate = {
     val returnGrid = pg.grid.replaceCell(pg.getPosition(col), col, Cell(pg.player(0).getChip()))
     returnGrid match {

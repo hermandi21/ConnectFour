@@ -4,6 +4,6 @@ import de.htwg.se.VierGewinnt.model.gridComponent.gridBaseImpl.Chip
 
 import scala.io.AnsiColor.RESET
 
-class BotPlayer(val name: String, val chip: Chip) extends Player:
+class BotPlayer(val name: String, val chip: Chip) extends PlayerInterface:
   
   override def toString: String = s"${chip.getColorCode}$name${RESET}"
