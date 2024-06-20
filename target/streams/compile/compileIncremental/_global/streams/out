@@ -1,6 +1,6 @@
 [0m[[0m[0mdebug[0m] [0m[0m[zinc] IncrementalCompile -----------[0m
 [0m[[0m[0mdebug[0m] [0m[0mIncrementalCompile.incrementalCompile[0m
-[0m[[0m[0mdebug[0m] [0m[0mprevious = Stamps for: 0 products, 0 sources, 0 libraries[0m
-[0m[[0m[0mdebug[0m] [0m[0mcurrent source = Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mprevious = Stamps for: 66 products, 24 sources, 6 libraries[0m
+[0m[[0m[0mdebug[0m] [0m[0mcurrent source = Set(${BASE}/src/main/scala/controller/GameState.scala, ${BASE}/src/main/scala/model/Move.scala, ${BASE}/src/main/scala/model/Grid.scala, ${BASE}/src/main/scala/util/Command.scala, ${BASE}/src/main/scala/aview/Tui.scala, ${BASE}/src/main/scala/controller/Controller.scala, ${BASE}/src/main/scala/model/PlaygroundTemplate.scala, ${BASE}/src/main/scala/util/Observer.scala, ${BASE}/src/main/scala/model/Cell.scala, ${BASE}/src/main/scala/Main.scala, ${BASE}/src/main/scala/aview/GUI.scala, ${BASE}/src/main/scala/model/EnemyPersonStrategy.scala, ${BASE}/src/main/scala/model/BotPlayer.scala, ${BASE}/src/main/scala/model/PlaygroundPvE.scala, ${BASE}/src/main/scala/util/Observable.scala, ${BASE}/src/main/scala/model/Player.scala, ${BASE}/src/main/scala/model/EnemyComputerStrategy.scala, ${BASE}/src/main/scala/util/EnemyStrategy.scala, ${BASE}/src/main/scala/model/PlaygroundPvP.scala, ${BASE}/src/main/scala/util/State.scala, ${BASE}/src/main/scala/controller/InsertChipCommand.scala, ${BASE}/src/main/scala/model/Chip.scala, ${BASE}/src/main/scala/model/Playground.scala, ${BASE}/src/main/scala/model/HumanPlayer.scala)[0m
 [0m[[0m[0mdebug[0m] [0m[0m> initialChanges = InitialChanges(Changes(added = Set(), removed = Set(), changed = Set(), unmodified = ...),Set(),Set(),API Changes: Set())[0m
-[0m[[0m[0mdebug[0m] [0m[0mFull compilation, no sources in previous analysis.[0m
+[0m[[0m[0mdebug[0m] [0m[0mNo changes[0m
