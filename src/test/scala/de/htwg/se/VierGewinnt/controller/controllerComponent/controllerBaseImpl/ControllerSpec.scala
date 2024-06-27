@@ -7,10 +7,14 @@ import de.htwg.se.VierGewinnt.controller.controllerComponent.controllerBaseImpl.
 import de.htwg.se.VierGewinnt.model.{gridComponent, *}
 import de.htwg.se.VierGewinnt.model.gridComponent.gridBaseImpl
 import de.htwg.se.VierGewinnt.model.gridComponent.gridBaseImpl.*
+import de.htwg.se.VierGewinnt.model.playgroundComponent.PlaygroundInterface
 import de.htwg.se.VierGewinnt.util.{Move, Observer}
+
 import scala.io.AnsiColor.{BLUE_B, RED_B, YELLOW_B}
 import org.scalatest.matchers.should.Matchers.*
 import org.scalatest.wordspec.AnyWordSpec
+
+import scala.io.Source
 
 class ControllerSpec extends AnyWordSpec {
   "A controller" when {
@@ -44,7 +48,7 @@ class ControllerSpec extends AnyWordSpec {
         controller.doAndPublish(controller.insChip, Move(0))
         controller.doAndPublish(controller.insChip, Move(1))
         controller.doAndPublish(controller.insChip, Move(1))
-        controller.checkFull()
+        controller.checkFull(controller.playground)
         controller.gamestate.state should be (TieState())
       }
 
@@ -81,7 +85,7 @@ class ControllerSpec extends AnyWordSpec {
         controller.toString
         controller.playgroundState should be ("Player Yellow has won the game!")
       }
-      
+
       "undo and redo a move" in {
         val injector = Guice.createInjector(new VierGewinntModule)
         val controller2 = injector.getInstance(classOf[ControllerInterface])
@@ -95,6 +99,33 @@ class ControllerSpec extends AnyWordSpec {
       }
       "return grid size" in {
         controller.gridSize should be(7)
+      }
+      "return if it is preparing" in {
+        controller.gamestate.changeState(PlayState())
+        controller.isPreparing should be(false)
+      }
+      "restart the game to reset into PrepareState" in {
+        controller.restartGame
+        controller.gamestate.state should be(PrepareState())
+      }
+      "game is not done yet" in {
+        controller.gamestate.changeState(PlayState())
+        controller.gameNotDone should be(true)
+      }
+      "save a game" in {
+        controller.gamestate.changeState(PlayState())
+        controller.save
+        val result = Source.fromFile("playground.json").getLines().mkString
+        result should (include("<playground") or include(s"\"playground\""))
+      }
+
+      "load a game" in {
+        controller.setupGame(0,7)
+        val savedBeforeChange = controller.playground
+        controller.save
+        controller.insChip(Move(0))
+        controller.load
+        controller.playground.toString should include(savedBeforeChange.toString)
       }
     }
   }
