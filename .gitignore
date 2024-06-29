@@ -54,3 +54,4 @@ target/streams/compile/compileIncremental/_global/streams/out
 project/.bloop/connectfour-build.json
 target/streams/compile/dependencyClasspath/_global/streams/export
 .metals/*
+.bloop/*
