@@ -20,6 +20,6 @@ class VierGewinntModule extends AbstractModule {
     bind(classOf[Int]).annotatedWith(Names.named("DefaultGameType")).toInstance(0)
 
 
-    bind(classOf[FileIOInterface]).to(classOf[fileIoJsonImpl.FileIO])
-    //bind(classOf[FileIOInterface]).to(classOf[fileIoXmlnImpl.FileIO])
+    //bind(classOf[FileIOInterface]).to(classOf[fileIoJsonImpl.FileIO])
+    bind(classOf[FileIOInterface]).to(classOf[fileIoXmlnImpl.FileIO])
 }

@@ -36,9 +36,6 @@ lazy val root = project
 
       Seq("base", "controls", "fxml", "graphics", "media", "swing", "web")
         .map(m => "org.openjfx" % s"javafx-$m" % "16" classifier osName)
-    },
-    // JVM options for software rendering
-    javaOptions in run += "-Dprism.order=sw",
-    javaOptions in run += "-Dprism.verbose=true"
+    }
   )
   .enablePlugins(JacocoCoverallsPlugin)
