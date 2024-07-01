@@ -55,3 +55,5 @@ project/.bloop/connectfour-build.json
 target/streams/compile/dependencyClasspath/_global/streams/export
 .metals/*
 .bloop/*
+.metals/metals.lock.db
+.metals/metals.log
