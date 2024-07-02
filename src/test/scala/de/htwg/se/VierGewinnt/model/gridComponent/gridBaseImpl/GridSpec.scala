@@ -64,6 +64,15 @@ class GridSpec extends AnyWordSpec {
         grid.replaceCell(0, 0, Cell(Chip.EMPTY)).isSuccess should be(true)
       }
     }
+    "removing a cell" should {
+      val grid = new Grid()
+      "throw an failure" in {
+        grid.removeCell(10, 10).isFailure should be(true)
+      }
+      "return an success" in {
+        grid.removeCell(0, 0).isSuccess should be(true)
+      }
+    }
     "have a string representation" in {
       val grid = new Grid(1)
       grid.toString should be(s"${BLUE_B}  ${BLUE_B}|" + grid.getCell(0, 0) + s"${BLUE_B}|  ${RESET}\n")
@@ -90,7 +99,7 @@ class GridSpec extends AnyWordSpec {
           .replaceCellRisk(0, 1, Cell(Chip.RED))
           .replaceCellRisk(0, 2, Cell(Chip.RED))
           .replaceCellRisk(0, 3, Cell(Chip.RED))
-        tempgrid.checkFour(0, 0, 0, 1, 0, 2, 0, 3) should be(1)
+        tempgrid.checkFour(0, 0, 0, 1, 0, 2, 0, 3) should be(Some(1,(0,0),(0,1),(0,2),(0,3)))
       }
       "correctly check failure in checkFour() " in {
         val tempgrid = grid
@@ -98,7 +107,7 @@ class GridSpec extends AnyWordSpec {
           .replaceCellRisk(0, 1, Cell(Chip.RED))
           .replaceCellRisk(0, 2, Cell(Chip.RED))
           .replaceCellRisk(0, 3, Cell(Chip.RED))
-        tempgrid.checkFour(0, 0, 0, 1, 0, 2, 0, 3) should be(0)
+        tempgrid.checkFour(0, 0, 0, 1, 0, 2, 0, 3) should be(None)
       }
       "correctly check win in checkHorizontalWin() " in {
         val tempgrid = grid
@@ -106,7 +115,7 @@ class GridSpec extends AnyWordSpec {
           .replaceCellRisk(0, 1, Cell(Chip.RED))
           .replaceCellRisk(0, 2, Cell(Chip.RED))
           .replaceCellRisk(0, 3, Cell(Chip.RED))
-        tempgrid.checkHorizontalWin() should be(1)
+        tempgrid.checkHorizontalWin() should be(Some(1,(0,0),(0,1),(0,2),(0,3)))
       }
       "correctly check win in checkVerticalWin() " in {
         val tempgrid = grid
@@ -114,7 +123,7 @@ class GridSpec extends AnyWordSpec {
           .replaceCellRisk(1, 0, Cell(Chip.RED))
           .replaceCellRisk(2, 0, Cell(Chip.RED))
           .replaceCellRisk(3, 0, Cell(Chip.RED))
-        tempgrid.checkVerticalWin() should be(1)
+        tempgrid.checkVerticalWin() should be(Some(1,(0,0),(1,0),(2,0),(3,0)))
       }
       "correctly check win in checkDiagonalUpRightWin() " in {
         val tempgrid = grid
@@ -122,7 +131,7 @@ class GridSpec extends AnyWordSpec {
           .replaceCellRisk(1, 1, Cell(Chip.RED))
           .replaceCellRisk(2, 2, Cell(Chip.RED))
           .replaceCellRisk(3, 3, Cell(Chip.RED))
-        tempgrid.checkDiagonalUpRightWin() should be(1)
+        tempgrid.checkDiagonalUpRightWin() should be(Some(1,(0,0),(1,1),(2,2),(3,3)))
       }
       "correctly check win in checkDiagonalUpLeftWin() " in {
         val tempgrid = grid
@@ -130,7 +139,7 @@ class GridSpec extends AnyWordSpec {
           .replaceCellRisk(3, 1, Cell(Chip.RED))
           .replaceCellRisk(2, 2, Cell(Chip.RED))
           .replaceCellRisk(1, 3, Cell(Chip.RED))
-        tempgrid.checkDiagonalUpLeftWin() should be(1)
+        tempgrid.checkDiagonalUpLeftWin() should be(Some(1,(4,0),(3,1),(2,2),(1,3)))
       }
       "correctly check result 0 if no win is found" in {
         grid.checkWin() should be(None)
@@ -141,7 +150,7 @@ class GridSpec extends AnyWordSpec {
           .replaceCellRisk(1, 0, Cell(Chip.RED))
           .replaceCellRisk(2, 0, Cell(Chip.RED))
           .replaceCellRisk(3, 0, Cell(Chip.RED))
-        tempgrid.checkWin() should be(Some(1))
+        tempgrid.checkWin() should be(Some((1,(0,0),(1,0),(2,0),(3,0))))
       }
       "correctly check other than 1 on diagonal right up" in {
         val tempgrid = grid
@@ -149,7 +158,7 @@ class GridSpec extends AnyWordSpec {
           .replaceCellRisk(1, 1, Cell(Chip.RED))
           .replaceCellRisk(2, 2, Cell(Chip.RED))
           .replaceCellRisk(3, 3, Cell(Chip.RED))
-        tempgrid.checkWin() should be(Some(1))
+        tempgrid.checkWin() should be(Some((1,(0,0),(1,1),(2,2),(3,3))))
       }
       "correctly check other than 1 on diagonal left up" in {
         val tempgrid = grid
@@ -157,7 +166,7 @@ class GridSpec extends AnyWordSpec {
           .replaceCellRisk(3, 1, Cell(Chip.RED))
           .replaceCellRisk(2, 2, Cell(Chip.RED))
           .replaceCellRisk(1, 3, Cell(Chip.RED))
-        tempgrid.checkWin() should be(Some(1))
+        tempgrid.checkWin() should be(Some((1,(4,0),(3,1),(2,2),(1,3))))
       }
     }
   }
