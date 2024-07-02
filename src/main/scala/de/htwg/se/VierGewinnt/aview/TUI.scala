@@ -7,20 +7,27 @@ import util.{Move, Observer}
 
 import scala.util.Try
 
-
+/** TUI class, the text-based user interface.
+ *  Extends the Observer class to be compatible with the model-view-controller architecture.
+ *
+ * @param controller Controller as parameter, which controls this TUI.
+ */
 class TUI(controller: ControllerInterface)extends Observer :
   controller.add(this)
 
+  /** Starting point of the tui. */
   def run =
     println(s"Welcome to 'Vier Gewinnt'\n")
     prepareGameType()
     getInputAndPrintLoop()
 
+  /** Function for the prepare-phase of the game. */
   def prepareGameType(): Unit =
     println("Please select one of the game type you want to play. For default settings ('Player vs Player', grid size=7) press ENTER\n0:'Player vs. Player', 1:'Player vs. Bot', 2:'Bot vs. Bot'")
     val gameType = readLine()
-    if (controller.isPreparing) //If controller is not preparing anymore, skip this
-      gameType match
+    controller.isPreparing match
+      case true =>
+        gameType match
         case "" => controller.setupGame(0, 7)
         case "0" | "1" =>
           println("Type the grid size")
@@ -37,7 +44,9 @@ class TUI(controller: ControllerInterface)extends Observer :
           println("Game loaded.")
         case "q" => //Exit
         case _   => prepareGameType()
+      case _ =>
 
+  /** Function for the ingame phase of the game */
   def getInputAndPrintLoop(): Unit =
     val input = readLine()
     input match {
@@ -63,14 +72,15 @@ class TUI(controller: ControllerInterface)extends Observer :
       case x if x.toIntOption == None =>
         println("doesn't look like a number")
         getInputAndPrintLoop()
-      case x if x.toInt < 1 || x.toInt > controller.playground.size =>
-        println("wrong input, try a number from 1 to " + controller.playground.size)
+      case x if x.toInt < 1 || x.toInt > controller.gridSize=>
+        println("wrong input, try a number from 1 to " + controller.gridSize)
         getInputAndPrintLoop()
       case _ =>
         controller.doAndPublish(controller.insChip, Move(input.toInt - 1))
         getInputAndPrintLoop()
     }
 
+  /** Updates the tui with a print of the playground and status. */
   override def update: Unit = {
     println(controller.toString)
     println(controller.printState)
