@@ -16,4 +16,4 @@ COPY . /VierGewinnt
 RUN chmod +x /VierGewinnt/view.sh
 
 # Setze das Entry-Point-Skript
-ENTRYPOINT ["/VierGewinnt/view.sh"]
+ENTRYPOINT ["/view.sh"]
