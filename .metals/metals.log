@@ -2640,3 +2640,9 @@ SLF4J(I): Actual provider is of type [scribe.slf4j.ScribeServiceProvider@67069a4
 2024.07.03 21:49:54 INFO  Connected to Build server: Bloop v1.5.18[0m
 2024.07.03 21:49:54 INFO  time: Imported build in 0.47s[0m
 2024.07.03 21:50:22 INFO  time: indexed workspace in 27s[0m
+2024.07.03 22:29:56 INFO  Shutting down server[0m
+2024.07.03 22:29:56 INFO  shutting down Metals[0m
+2024.07.03 22:29:56 INFO  Shut down connection with build server.[0m
+2024.07.03 22:29:56 INFO  Shut down connection with build server.[0m
+2024.07.03 22:29:56 INFO  Shut down connection with build server.[0m
+2024.07.03 22:29:56 INFO  Exiting server[0m
