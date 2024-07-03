@@ -2646,3 +2646,20 @@ SLF4J(I): Actual provider is of type [scribe.slf4j.ScribeServiceProvider@67069a4
 2024.07.03 22:29:56 INFO  Shut down connection with build server.[0m
 2024.07.03 22:29:56 INFO  Shut down connection with build server.[0m
 2024.07.03 22:29:56 INFO  Exiting server[0m
+2024.07.03 22:44:40 INFO  Started: Metals version 1.3.2 in folders 'C:\Users\herma\Desktop\ConnectFour' for client Visual Studio Code 1.91.0.[0m
+SLF4J(W): Class path contains multiple SLF4J providers.
+SLF4J(W): Found provider [scribe.slf4j.ScribeServiceProvider@30f2051f]
+SLF4J(W): Found provider [ch.qos.logback.classic.spi.LogbackServiceProvider@7e74ee18]
+SLF4J(W): See https://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J(I): Actual provider is of type [scribe.slf4j.ScribeServiceProvider@30f2051f]
+2024.07.03 22:44:41 WARN  Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.[0m
+2024.07.03 22:44:42 INFO  Attempting to connect to the build server...[0m
+2024.07.03 22:44:42 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\herma\Desktop\ConnectFour\.metals\bsp.trace.json or C:\Users\herma\AppData\Local\scalameta\metals\cache\bsp.trace.json[0m
+2024.07.03 22:44:42 INFO  Attempting to connect to the build server...[0m
+2024.07.03 22:44:42 INFO  Attempting to connect to the build server...[0m
+2024.07.03 22:44:42 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\herma\Desktop\ConnectFour\project\.metals\bsp.trace.json or C:\Users\herma\AppData\Local\scalameta\metals\cache\bsp.trace.json[0m
+2024.07.03 22:44:42 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\herma\Desktop\ConnectFour\project\project\.metals\bsp.trace.json or C:\Users\herma\AppData\Local\scalameta\metals\cache\bsp.trace.json[0m
+2024.07.03 22:44:42 INFO  time: Connected to build server in 0.57s[0m
+2024.07.03 22:44:42 INFO  Connected to Build server: Bloop v1.5.18[0m
+2024.07.03 22:44:42 INFO  time: Imported build in 0.21s[0m
+2024.07.03 22:44:54 INFO  time: indexed workspace in 11s[0m

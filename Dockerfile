@@ -9,4 +9,4 @@ ADD . /VierGewinnt
 RUN chmod +x /VierGewinnt/view.sh
 
 # Setze das Entry-Point-Skript
-ENTRYPOINT ["/view.sh"]
+ENTRYPOINT ["/VierGewinnt/view.sh"]
