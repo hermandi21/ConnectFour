@@ -1,10 +1,12 @@
-FROM hseeberger/scala-sbt:graalvm-ce-21.3.0-java17_1.6.2_3.1.1
+FROM hseeberger/scala-sbt:16.0.1_1.5.4_2.13.6
 
 RUN apt-get update && \
     apt-get install -y libxrender1 libxtst6 libxi6 libgl1-mesa-glx libgtk-3-0
 
-WORKDIR /VierGewinnt
-ADD . /VierGewinnt
+WORKDIR \ConnectFour
+ADD . \ConnectFour
 
-RUN chmod +x /VierGewinnt/view.sh
-ENTRYPOINT ["/VierGewinnt/view.sh"]
+RUN chmod +x \ConnectFour\view.sh
+
+# Setze das Entry-Point-Skript
+ENTRYPOINT ["..\ConnectFour\view.sh"]
