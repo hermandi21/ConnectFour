@@ -9,8 +9,15 @@ import scala.util.Failure
 import scala.util.Random
 import scala.util.Success
 
+/** Strategy class, when the opponent is a computer. */
 case class EnemyComputerStrategy() extends EnemyStrategy {
 
+  /** Insert a chip to the playground.
+   *
+   * @param playground Old playground.
+   * @param col Column on where to place the chip.
+   * @return New playground.
+   */
   override def insertChip(pg: PlaygroundTemplate, col: Int): PlaygroundTemplate = {
     var temp =
       pg // Temporary Playground, only for EnemyComputer, because of the Full Grid check. If Grid Full, Computer does NOT play anymore.
@@ -25,20 +32,24 @@ case class EnemyComputerStrategy() extends EnemyStrategy {
     temp
   }
 
+  /** Function for the computer to place a chip.
+   *
+   * @param pg Old playground.
+   * @return Returns the new playground. If the playground is full, then the same old playground gets returned.
+   */
   def computerinsertChip(pg: PlaygroundTemplate): PlaygroundTemplate = {
-    var chosenCol = Random.between(0, pg.size)
-    for (i <- 0 to pg.size - 1)
-      if (pg.getPosition(chosenCol) == -1) {
-        chosenCol = i
-      }
+    pg.grid.checkWin() match
+      case Some(_) => pg
+      case None =>
+        var chosenCol = Random.between(0, pg.size)
+        for (i <- 0 to pg.size - 1)
+          if (pg.getPosition(chosenCol) == -1) {
+            chosenCol = i
+          }
 
-    val returnGrid = pg.grid.replaceCell(pg.getPosition(chosenCol), chosenCol, gridBaseImpl.Cell(pg.player(1).getChip()))
-    returnGrid match {
-      case Success(v) => playgroundBaseImpl.PlaygroundPvE(v, pg.player) // IF Success, return the new playground
-      case Failure(_) => pg // If Failure, retry inserting a chip!
-    }
+        val returnGrid = pg.grid.replaceCell(pg.getPosition(chosenCol), chosenCol, gridBaseImpl.Cell(pg.player(1).getChip()))
+        returnGrid match
+          case Success(v) => playgroundBaseImpl.PlaygroundPvE(v, pg.player) // IF Success, return the new playground
+          case Failure(_) => pg // If Failure, retry inserting a chip!
   }
-
-
-
 }

@@ -2902,3 +2902,7 @@ INFORMATION: Unsupported notification method: $/setTrace
 2024.07.04 23:10:42 INFO  time: compiled root in 8.34s[0m
 2024.07.04 23:10:42 INFO  compiling root-test (26 scala sources)[0m
 2024.07.04 23:10:55 INFO  time: compiled root-test in 12s[0m
+2024.07.04 23:11:07 INFO  compiling root (35 scala sources)[0m
+2024.07.04 23:11:13 INFO  time: compiled root in 6.21s[0m
+2024.07.04 23:11:13 INFO  compiling root-test (19 scala sources)[0m
+2024.07.04 23:11:21 INFO  time: compiled root-test in 7.81s[0m

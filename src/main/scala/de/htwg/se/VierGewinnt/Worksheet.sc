@@ -3,14 +3,7 @@ val a = List(19, 50, 8, 1, 365).sorted
 
 val colors = List("green", "red", "yellow", "blue").sorted
 
-colors(1)
-
-
-//Tupel
-val b = ("Thu Ha", 21)
-val c = ("Orkan", "AIN")
-
-b._1 //1.Element -> Thu Ha
+b._1 
 b._2
 
 c._2

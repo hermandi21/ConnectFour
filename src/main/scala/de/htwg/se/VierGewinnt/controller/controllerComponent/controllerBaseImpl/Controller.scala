@@ -130,10 +130,11 @@ class Controller @Inject()(@Named("DefaultPlayground") var playground: Playgroun
   /** Check if the playground has a winner.
    * If there is a winner, change the GameState to WinState, else do nothing. */
   override def checkWinner(pg: PlaygroundInterface): Unit =
-      pg.grid.checkWin() match
-        case None =>
-        case Some(num) => //1 == Red, 2 == Yellow
-          gamestate.changeState(WinState())
+    pg.grid.checkWin() match
+      case None =>
+      case Some(winningchips) => //1 == Red, 2 == Yellow
+        winnerChips = Some(winningchips)
+        gamestate.changeState(WinState())
 
   /** Gets the color of a chip on a certain coordinate.
    *

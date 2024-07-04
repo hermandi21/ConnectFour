@@ -12,6 +12,7 @@ import de.htwg.se.VierGewinnt.model.playgroundComponent.playgroundBaseImpl.*
 import de.htwg.se.VierGewinnt.model.fileIoComponent._
 import net.codingwell.scalaguice.ScalaModule
 
+/** Module for dependency injection, decides which interfaces and default parameter to use. */
 class VierGewinntModule extends AbstractModule {
   override def configure(): Unit =
     bind(classOf[ControllerInterface]).to(classOf[controllerBaseImpl.Controller])
@@ -20,6 +21,6 @@ class VierGewinntModule extends AbstractModule {
     bind(classOf[Int]).annotatedWith(Names.named("DefaultGameType")).toInstance(0)
 
 
-    //bind(classOf[FileIOInterface]).to(classOf[fileIoJsonImpl.FileIO])
-    bind(classOf[FileIOInterface]).to(classOf[fileIoXmlnImpl.FileIO])
+    bind(classOf[FileIOInterface]).to(classOf[fileIoJsonImpl.FileIO])
+    //bind(classOf[FileIOInterface]).to(classOf[fileIoXmlnImpl.FileIO])
 }

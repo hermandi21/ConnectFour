@@ -7,7 +7,15 @@ import de.htwg.se.VierGewinnt.model.playgroundComponent.playgroundBaseImpl.Playg
 import scala.util.Failure
 import scala.util.Success
 
+/** Strategy class, when the opponent is a real person. */
 case class EnemyPersonStrategy() extends EnemyStrategy {
+
+  /** Insert a chip to the playground.
+   *
+   * @param playground Old playground.
+   * @param col Column on where to place the chip.
+   * @return New playground.
+   */
   override def insertChip(pg: PlaygroundTemplate, col: Int): PlaygroundTemplate = {
     val returnGrid = pg.grid.replaceCell(pg.getPosition(col), col, Cell(pg.player(0).getChip()))
     returnGrid match {
