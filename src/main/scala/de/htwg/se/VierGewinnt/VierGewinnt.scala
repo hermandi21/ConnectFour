@@ -7,6 +7,7 @@ import de.htwg.se.VierGewinnt.controller.controllerComponent.ControllerInterface
 
 import scala.io.StdIn.readLine
 
+/*
 /** Main run, parameter decide if run in gui, tui or both. */
 @main def run(args:String*): Unit =
   val injector = Guice.createInjector(new VierGewinntModule)
@@ -22,3 +23,17 @@ import scala.io.StdIn.readLine
         override def run(): Unit = GUI(controller).main(Array())
       }.start()
       TUI(controller).run
+      */
+
+      
+      /** Main run, parameter decide if run in gui, tui or both. */
+      @main def run(args:String*): Unit =
+        val injector = Guice.createInjector(new VierGewinntModule)
+        val controller = injector.getInstance(classOf[ControllerInterface])
+
+        args match
+          case x if x contains "tui" =>
+            TUI(controller).run
+          case _ =>
+            TUI(controller).run
+            

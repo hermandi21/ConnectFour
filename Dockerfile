@@ -1,12 +1,14 @@
-FROM hseeberger/scala-sbt:16.0.1_1.5.4_2.13.6
+FROM sbtscala/scala-sbt:eclipse-temurin-17.0.4_1.7.1_3.2.0
 
+# Install required dependencies for X11
 RUN apt-get update && \
     apt-get install -y libxrender1 libxtst6 libxi6 libgl1-mesa-glx libgtk-3-0
 
-WORKDIR \ConnectFour
-ADD . \ConnectFour
+# Set the working directory
+WORKDIR /ConnectFour
 
-RUN chmod +x \ConnectFour\view.sh
+# Add the project files into the container
+ADD . /ConnectFour
+CMD sbt run
+#ENTRYPOINT ["/VierGewinnt/view.sh"]
 
-# Setze das Entry-Point-Skript
-ENTRYPOINT ["..\ConnectFour\view.sh"]
