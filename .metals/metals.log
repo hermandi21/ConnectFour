@@ -2906,3 +2906,53 @@ INFORMATION: Unsupported notification method: $/setTrace
 2024.07.04 23:11:13 INFO  time: compiled root in 6.21s[0m
 2024.07.04 23:11:13 INFO  compiling root-test (19 scala sources)[0m
 2024.07.04 23:11:21 INFO  time: compiled root-test in 7.81s[0m
+2024.07.04 23:12:19 INFO  Shutting down server[0m
+2024.07.04 23:12:19 INFO  shutting down Metals[0m
+2024.07.04 23:12:19 INFO  Shut down connection with build server.[0m
+2024.07.04 23:12:19 INFO  Shut down connection with build server.[0m
+2024.07.04 23:12:19 INFO  Shut down connection with build server.[0m
+2024.07.04 23:12:19 INFO  Exiting server[0m
+2024.07.04 23:12:51 INFO  Started: Metals version 1.3.2 in folders 'C:\Users\herma\Desktop\ConnectFour' for client Visual Studio Code 1.91.0.[0m
+SLF4J(W): Class path contains multiple SLF4J providers.
+SLF4J(W): Found provider [scribe.slf4j.ScribeServiceProvider@298481c8]
+SLF4J(W): Found provider [ch.qos.logback.classic.spi.LogbackServiceProvider@2dbef219]
+SLF4J(W): See https://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J(I): Actual provider is of type [scribe.slf4j.ScribeServiceProvider@298481c8]
+2024.07.04 23:12:52 WARN  Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.[0m
+2024.07.04 23:12:53 INFO  Attempting to connect to the build server...[0m
+2024.07.04 23:12:53 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\herma\Desktop\ConnectFour\.metals\bsp.trace.json or C:\Users\herma\AppData\Local\scalameta\metals\cache\bsp.trace.json[0m
+2024.07.04 23:12:53 INFO  Attempting to connect to the build server...[0m
+2024.07.04 23:12:53 INFO  Attempting to connect to the build server...[0m
+2024.07.04 23:12:53 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\herma\Desktop\ConnectFour\project\.metals\bsp.trace.json or C:\Users\herma\AppData\Local\scalameta\metals\cache\bsp.trace.json[0m
+2024.07.04 23:12:54 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\herma\Desktop\ConnectFour\project\project\.metals\bsp.trace.json or C:\Users\herma\AppData\Local\scalameta\metals\cache\bsp.trace.json[0m
+2024.07.04 23:12:53 INFO  time: Connected to build server in 0.53s[0m
+2024.07.04 23:12:53 INFO  Connected to Build server: Bloop v1.5.18[0m
+2024.07.04 23:12:54 INFO  time: Imported build in 0.34s[0m
+2024.07.04 23:13:13 INFO  time: indexed workspace in 19s[0m
+2024.07.04 23:13:22 INFO  Shutting down server[0m
+2024.07.04 23:13:22 INFO  shutting down Metals[0m
+2024.07.04 23:13:22 INFO  Shut down connection with build server.[0m
+2024.07.04 23:13:22 INFO  Shut down connection with build server.[0m
+2024.07.04 23:13:22 INFO  Shut down connection with build server.[0m
+2024.07.04 23:13:22 INFO  Exiting server[0m
+2024.07.05 08:11:04 INFO  Started: Metals version 1.3.2 in folders 'C:\Users\herma\Desktop\ConnectFour' for client Visual Studio Code 1.91.0.
+2024.07.05 08:11:04 INFO  time: initialize in 0.12s
+SLF4J(W): Class path contains multiple SLF4J providers.
+SLF4J(W): Found provider [scribe.slf4j.ScribeServiceProvider@7e9a3100]
+SLF4J(W): Found provider [ch.qos.logback.classic.spi.LogbackServiceProvider@1fe61d79]
+SLF4J(W): See https://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J(I): Actual provider is of type [scribe.slf4j.ScribeServiceProvider@7e9a3100]
+2024.07.05 08:11:08 WARN  Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2024.07.05 08:11:10 INFO  Attempting to connect to the build server...
+2024.07.05 08:11:47 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\herma\Desktop\ConnectFour\.metals\bsp.trace.json or C:\Users\herma\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2024.07.05 08:11:49 INFO  Attempting to connect to the build server...
+2024.07.05 08:11:49 INFO  Attempting to connect to the build server...
+2024.07.05 08:11:49 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\herma\Desktop\ConnectFour\project\project\.metals\bsp.trace.json or C:\Users\herma\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2024.07.05 08:11:49 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\herma\Desktop\ConnectFour\project\.metals\bsp.trace.json or C:\Users\herma\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2024.07.05 08:11:49 INFO  time: Connected to build server in 40s
+2024.07.05 08:11:49 INFO  Connected to Build server: Bloop v1.5.18
+2024.07.05 08:11:53 INFO  time: Imported build in 2.45s
+2024.07.05 08:12:22 INFO  time: indexed workspace in 29s
+2024.07.05 08:35:28 INFO  time: code lens generation in 4.68s
+Juli 05, 2024 8:50:02 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFORMATION: Unsupported notification method: $/setTrace
